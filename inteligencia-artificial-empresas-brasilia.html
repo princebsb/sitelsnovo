@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Inteligência Artificial para Empresas: Agentes e RAG | LS Global Tecnologia</title>
+    <meta name="description" content="IA aplicada para empresas em Brasília: agentes que respondem com base nos seus documentos (RAG), integração com WhatsApp e com os seus sistemas. Projeto com custo dimensionado.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lsglobaltecnologia.com.br/inteligencia-artificial-empresas-brasilia.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Inteligência Artificial para Empresas: Agentes e RAG | LS Global Tecnologia">
+    <meta property="og:description" content="IA aplicada para empresas em Brasília: agentes que respondem com base nos seus documentos (RAG), integração com WhatsApp e com os seus sistemas. Projeto com custo dimensionado.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lsglobaltecnologia.com.br/inteligencia-artificial-empresas-brasilia.html">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="LS Global Tecnologia">
+    <meta property="og:image" content="https://lsglobaltecnologia.com.br/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://lsglobaltecnologia.com.br/img/og-image.jpg">
+
+    <!-- FAQ para resultados enriquecidos -->
+    <script type="application/ld+json">
+{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+                {
+                        "@type": "Question",
+                        "name": "O que é RAG, em termos práticos?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "RAG (geração aumentada por recuperação) é a técnica que faz a IA responder com base nos seus documentos, e não no que ela \"acha\". Antes de responder, o sistema busca os trechos relevantes nos seus arquivos — contratos, normas, manuais, portarias — e só então gera a resposta, citando de onde tirou. É o que reduz drasticamente a chance de invenção."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "Meus documentos ficam expostos ou vão treinar o modelo?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Não. Os arquivos ficam no banco de dados do seu projeto e são enviados ao modelo apenas como contexto da pergunta, sob contrato de API — que, nos provedores que usamos, não usa esse conteúdo para treinamento. Também definimos quem pode perguntar o quê: um assistente pode responder ao setor financeiro coisas que não responde para o atendimento."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "Preciso treinar um modelo próprio?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Na quase totalidade dos casos, não. Treinar modelo é caro, demorado e desatualiza rápido. O caminho que funciona para empresa é usar um modelo pronto e bom, alimentado com os seus dados via RAG, com ferramentas que consultam seus sistemas em tempo real — a resposta acompanha o dado atual, sem retreinar nada."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "Quanto custa manter um assistente de IA no ar?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Há duas contas: o desenvolvimento, que é projeto fechado, e o uso, cobrado por volume de perguntas pelo provedor do modelo. Um assistente interno de porte médio costuma custar poucas dezenas de reais por mês em consumo. Dimensionamos isso antes, com base no volume estimado, para não haver surpresa."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "Dá para integrar com o WhatsApp?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Sim, e costuma ser o formato mais adotado, porque a pessoa já vive nele. É o que fizemos no AuditorAPS, onde a conversa com o agente acontece tanto na web quanto no WhatsApp, com o mesmo histórico."
+                        }
+                }
+        ]
+}
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico?v=20260915" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=20260915">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0f2a6b">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=20260911">
+    <style>
+        .page-topo {
+            padding-top: 104px;
+            padding-bottom: 40px;
+        }
+
+        .page-intro {
+            max-width: 760px;
+            margin: 18px auto 0;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .voltar-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 36px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+
+        .voltar-home:hover {
+            color: var(--color-primary);
+        }
+
+        .voltar-home svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .bloco-texto {
+            max-width: 820px;
+            margin: 0 auto 32px;
+        }
+
+        .bloco-texto h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 18px;
+        }
+
+        .texto-corrido {
+            font-size: 0.9375rem;
+            line-height: 1.85;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        .lista-marcada {
+            list-style: none;
+            margin: 4px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .lista-marcada li {
+            position: relative;
+            padding-left: 22px;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--color-text-light);
+        }
+
+        .lista-marcada li::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-primary);
+        }
+
+        .faq-lista {
+            max-width: 820px;
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 18px 22px;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--color-text);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .faq-item[open] summary::after {
+            content: "\2013";
+        }
+
+        .faq-item p {
+            margin: 14px 0 0;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .veja-tambem {
+            margin-top: 48px;
+            margin-bottom: 0;
+        }
+
+        .veja-tambem ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+        }
+
+        .veja-tambem a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <img src="img/LogoLSGlobal.png" alt="LS Global Tecnologia" class="logo-img">
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                <li><a href="gestao-ti.html" class="nav-link">Gestão de TI</a></li>
+                <li><a href="predial.html" class="nav-link">Predial</a></li>
+                <li><a href="tecnologias.html" class="nav-link">Tecnologias</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="contato.html" class="btn btn-primary">Solicitar Orçamento</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section page-topo">
+            <div class="container">
+                <a href="index.html" class="voltar-home">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+                    Voltar para a página inicial
+                </a>
+                <div class="section-header">
+                    <span class="section-tag">Inteligência Artificial</span>
+                    <h1 class="section-title">Inteligência artificial para empresas: agentes e RAG</h1>
+                    <p class="section-subtitle">Assistentes que respondem com base nos documentos e nos dados da sua empresa — não em achismo — integrados ao WhatsApp e aos sistemas que você já usa.</p>
+                    <p class="page-intro">Projetos de IA aplicada para empresas e instituições de Brasília, conduzidos por quem também desenvolve o sistema onde a IA vai funcionar.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>O que dá para resolver com IA hoje, sem promessa vazia</h2>
+                    <p class="texto-corrido">A pergunta certa não é "onde uso IA", e sim "qual tarefa consome tempo da equipe e depende de ler texto". É aí que a tecnologia atual entrega resultado real: procurar a resposta em centenas de páginas de norma, triar mensagens recebidas, extrair dados de documentos, redigir a primeira versão de um parecer.</p>
+                    <p class="texto-corrido">O que não recomendamos: usar IA para decidir sozinha o que tem consequência jurídica ou financeira. O modelo propõe, a pessoa confirma. Essa fronteira aparece no desenho do projeto e é discutida com você antes da primeira linha de código.</p>
+                    <ul class="lista-marcada">
+                        <li>Assistente que responde dúvidas sobre normas, contratos e manuais internos</li>
+                        <li>Atendimento inicial no WhatsApp, com escalonamento para uma pessoa quando necessário</li>
+                        <li>Extração de dados de notas, contratos e laudos para dentro do sistema</li>
+                        <li>Triagem e classificação de solicitações que chegam por e-mail ou formulário</li>
+                        <li>Análise de inconsistências em bases de dados, com diagnóstico e plano de ação</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section section-alt">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>Como montamos um agente com RAG</h2>
+                </div>
+                <div class="scope-grid">
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Ingestão dos documentos</strong>
+                            <span>PDFs, normas, manuais e planilhas são processados, divididos em trechos e indexados em banco vetorial.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Busca semântica</strong>
+                            <span>A pergunta encontra os trechos por significado, não por palavra exata — "quando posso remarcar" acha a cláusula de reagendamento.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Resposta com fonte</strong>
+                            <span>O modelo responde citando de onde tirou, e o usuário consegue abrir o documento original para conferir.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Ferramentas conectadas</strong>
+                            <span>O agente consulta seus sistemas em tempo real: status de um pedido, indicador do mês, situação de um cadastro.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Controle de acesso</strong>
+                            <span>Cada perfil enxerga o que pode: o que o financeiro pergunta não é o que o atendimento vê.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Canais de conversa</strong>
+                            <span>Web, WhatsApp ou dentro do sistema que a empresa já usa, com o mesmo histórico.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Registro e auditoria</strong>
+                            <span>Todas as perguntas e respostas ficam registradas, para avaliar qualidade e corrigir o que sair errado.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Custo previsível</strong>
+                            <span>Dimensionamos o consumo por volume de uso e acompanhamos o gasto mensal do provedor.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>AuditorAPS: um agente em produção, não uma demonstração</h2>
+                    <p class="texto-corrido">O AuditorAPS é a nossa plataforma de apoio à gestão da Atenção Primária à Saúde. O agente responde a gestores municipais com base em portarias, notas técnicas e manuais oficiais do Ministério da Saúde, e ao mesmo tempo consulta os dados do município — equipes, indicadores, financiamento e inconsistências — para diagnosticar a situação e montar um plano de ação priorizado.</p>
+                    <p class="texto-corrido">Foi construído com Java e Spring Boot, PostgreSQL com pgvector para a busca semântica, modelos da OpenAI e atendimento por WhatsApp. É o mesmo conjunto de técnicas que aplicamos em projetos menores: a diferença está no volume de documentos, não na receita.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section-alt" id="faq">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>Perguntas frequentes</h2>
+                </div>
+                <div class="faq-lista">
+                    <details class="faq-item">
+                        <summary>O que é RAG, em termos práticos?</summary>
+                        <p>RAG (geração aumentada por recuperação) é a técnica que faz a IA responder com base nos seus documentos, e não no que ela "acha". Antes de responder, o sistema busca os trechos relevantes nos seus arquivos — contratos, normas, manuais, portarias — e só então gera a resposta, citando de onde tirou. É o que reduz drasticamente a chance de invenção.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Meus documentos ficam expostos ou vão treinar o modelo?</summary>
+                        <p>Não. Os arquivos ficam no banco de dados do seu projeto e são enviados ao modelo apenas como contexto da pergunta, sob contrato de API — que, nos provedores que usamos, não usa esse conteúdo para treinamento. Também definimos quem pode perguntar o quê: um assistente pode responder ao setor financeiro coisas que não responde para o atendimento.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Preciso treinar um modelo próprio?</summary>
+                        <p>Na quase totalidade dos casos, não. Treinar modelo é caro, demorado e desatualiza rápido. O caminho que funciona para empresa é usar um modelo pronto e bom, alimentado com os seus dados via RAG, com ferramentas que consultam seus sistemas em tempo real — a resposta acompanha o dado atual, sem retreinar nada.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Quanto custa manter um assistente de IA no ar?</summary>
+                        <p>Há duas contas: o desenvolvimento, que é projeto fechado, e o uso, cobrado por volume de perguntas pelo provedor do modelo. Um assistente interno de porte médio costuma custar poucas dezenas de reais por mês em consumo. Dimensionamos isso antes, com base no volume estimado, para não haver surpresa.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Dá para integrar com o WhatsApp?</summary>
+                        <p>Sim, e costuma ser o formato mais adotado, porque a pessoa já vive nele. É o que fizemos no AuditorAPS, onde a conversa com o agente acontece tanto na web quanto no WhatsApp, com o mesmo histórico.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="ti-cta">
+                    <div>
+                        <h2>Traga um problema concreto, não uma ideia genérica</h2>
+                        <p>Quanto mais específico — "meu time perde duas horas por dia procurando X" —, mais rápido conseguimos dizer se IA resolve, quanto custa e em quanto tempo fica pronto.</p>
+                    </div>
+                    <div class="ti-cta-actions">
+                        <a href="https://wa.me/5561998170414?text=Ola!%20Gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20inteligencia%20artificial%20para%20a%20minha%20empresa." class="btn btn-whatsapp" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Chamar no WhatsApp
+                        </a>
+                        <a href="contato.html" class="btn btn-outline">Enviar mensagem</a>
+                    </div>
+                </div>
+
+                <div class="bloco-texto veja-tambem">
+                    <h2>Veja também</h2>
+                    <ul>
+                        <li><a href="portfolio.html">AuditorAPS e os demais projetos</a></li>
+                        <li><a href="desenvolvimento-sistemas-sob-medida-brasilia.html">Sistemas sob medida</a></li>
+                        <li><a href="tecnologias.html">Stack que utilizamos</a></li>
+                        <li><a href="servicos.html">Todos os serviços</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <img src="img/LogoLSGlobal-branco.png" alt="LS Global Tecnologia">
+                    </a>
+                    <p>Transformando ideias em soluções digitais inovadoras. Sua parceira estratégica na jornada de transformação digital.</p>
+                    <address class="footer-address">
+                        <strong>LS Global Tecnologia Ltda</strong><br>
+                        CNPJ: 58.843.245/0001-60<br>
+                        R das Figueiras, Lote 07, Lojas 66/67/68/69, Parte 263<br>
+                        Águas Claras/DF — CEP 71906-750
+                    </address>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="portfolio.html">Portfólio</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="desenvolvimento-web.html">Desenvolvimento de Sistemas Web</a></li>
+                        <li><a href="aplicativos-mobile.html">Desenvolvimento de Aplicativos</a></li>
+                        <li><a href="sistemas-sob-medida.html">Sistemas Sob Medida</a></li>
+                        <li><a href="integracoes-apis.html">Integração de APIs</a></li>
+                        <li><a href="servicos.html">Automação de Processos</a></li>
+                        <li><a href="servicos.html">Inteligência Artificial e Agentes</a></li>
+                        <li><a href="servicos.html">Sustentação e Evolução de Sistemas</a></li>
+                        <li><a href="servicos.html">Saúde Digital e Sistemas Públicos</a></li>
+                        <li><a href="servicos.html">Consultoria em Tecnologia</a></li>
+                        <li><a href="gestao-ti.html">Gestão de TI e Infraestrutura</a></li>
+                        <li><a href="predial.html">Gestão de Sistemas Prediais</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            contato@lsglobaltecnologia.com.br
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +55 (61) 99817-0414
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2026 LS Global Tecnologia. Todos os direitos reservados.</p>
+                    <p>LS Global Tecnologia Ltda · CNPJ: 58.843.245/0001-60</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacidade.html">Política de Privacidade</a>
+                    <a href="termos.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5561998170414?text=Olá! Gostaria de saber mais sobre os serviços da LS Global Tecnologia." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js?v=20260911"></script>
+    <script src="js/legal-modal.js?v=20260911"></script>
+    <script src="js/analytics.js?v=20260911"></script>
+</body>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70">
+  <defs>
+    <linearGradient id="g4a" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="g4b" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ícone: Letra L + S estilizadas formando símbolo -->
+  <g transform="translate(5, 5)">
+    <!-- L estilizado -->
+    <path d="M10 8 L10 48 L35 48" fill="none" stroke="url(#g4a)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- S estilizado sobreposto -->
+    <path d="M50 15 C35 15, 25 22, 25 30 C25 38, 35 42, 45 42 C55 42, 50 52, 35 52" fill="none" stroke="url(#g4b)" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Ponto de conexão -->
+    <circle cx="50" cy="15" r="4" fill="#06b6d4"/>
+    <circle cx="35" cy="52" r="4" fill="#6366f1"/>
+  </g>
+
+  <!-- Texto -->
+  <text x="85" y="32" font-family="'Segoe UI', Arial, sans-serif" font-size="28" font-weight="300" fill="#ffffff" letter-spacing="3">GLOBAL</text>
+  <rect x="85" y="40" width="130" height="2" fill="url(#g4a)" rx="1"/>
+  <text x="85" y="58" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="#a1a1aa" letter-spacing="6">TECNOLOGIA</text>
+</svg>

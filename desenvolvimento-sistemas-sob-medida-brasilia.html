@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Desenvolvimento de Sistemas sob Medida em Brasília | LS Global Tecnologia</title>
+    <meta name="description" content="Desenvolvimento de sistemas sob medida em Brasília e no DF: sistemas web, aplicativos Android e iOS e integrações, entregues por etapas, com código do cliente e sustentação.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lsglobaltecnologia.com.br/desenvolvimento-sistemas-sob-medida-brasilia.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Desenvolvimento de Sistemas sob Medida em Brasília | LS Global Tecnologia">
+    <meta property="og:description" content="Desenvolvimento de sistemas sob medida em Brasília e no DF: sistemas web, aplicativos Android e iOS e integrações, entregues por etapas, com código do cliente e sustentação.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lsglobaltecnologia.com.br/desenvolvimento-sistemas-sob-medida-brasilia.html">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="LS Global Tecnologia">
+    <meta property="og:image" content="https://lsglobaltecnologia.com.br/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://lsglobaltecnologia.com.br/img/og-image.jpg">
+
+    <!-- FAQ para resultados enriquecidos -->
+    <script type="application/ld+json">
+{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+                {
+                        "@type": "Question",
+                        "name": "Quanto tempo leva para ficar pronto?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Depende do escopo, mas trabalhamos com entregas parciais: em poucas semanas você já usa a primeira parte do sistema em produção, e o restante entra por etapas. Isso evita o projeto de seis meses que só é visto no fim — e permite corrigir o rumo enquanto ainda é barato mudar."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "De quem é o código-fonte depois de pronto?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Do cliente, após a quitação do projeto. Isso fica escrito em contrato. Você não fica preso a nós: pode levar o código para outra equipe, hospedar onde quiser e continuar a evolução com quem preferir."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "É melhor um sistema sob medida ou um pronto de prateleira?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Quando existe um sistema de mercado que atende, o pronto costuma sair mais barato e nós dizemos isso. O sob medida vale quando o processo é o diferencial da empresa, quando o sistema pronto obriga a mudar a operação inteira, ou quando a soma das mensalidades de várias ferramentas já superou o custo de ter algo próprio."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "Quem cuida do sistema depois da entrega?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Oferecemos contrato de sustentação: correção de falhas, novas funcionalidades, atualização de bibliotecas e acompanhamento do ambiente em produção. Também aceitamos assumir sistemas feitos por outra equipe — analisamos o que existe antes de propor qualquer reescrita."
+                        }
+                },
+                {
+                        "@type": "Question",
+                        "name": "Vocês fazem aplicativo além do sistema web?",
+                        "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Sim. Vários projetos do nosso portfólio têm painel web e aplicativo para Android e iOS compartilhando a mesma API, como o sistema de gestão condominial do SQS 103 e a plataforma do Instrutor Legal. O app entra quando o uso é em campo ou no celular do usuário final — não por modismo."
+                        }
+                }
+        ]
+}
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico?v=20260915" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=20260915">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0f2a6b">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css?v=20260911">
+    <style>
+        .page-topo {
+            padding-top: 104px;
+            padding-bottom: 40px;
+        }
+
+        .page-intro {
+            max-width: 760px;
+            margin: 18px auto 0;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .voltar-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 36px;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-text-light);
+        }
+
+        .voltar-home:hover {
+            color: var(--color-primary);
+        }
+
+        .voltar-home svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .bloco-texto {
+            max-width: 820px;
+            margin: 0 auto 32px;
+        }
+
+        .bloco-texto h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: 18px;
+        }
+
+        .texto-corrido {
+            font-size: 0.9375rem;
+            line-height: 1.85;
+            color: var(--color-text-light);
+            margin-bottom: 16px;
+        }
+
+        .lista-marcada {
+            list-style: none;
+            margin: 4px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .lista-marcada li {
+            position: relative;
+            padding-left: 22px;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--color-text-light);
+        }
+
+        .lista-marcada li::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--color-primary);
+        }
+
+        .faq-lista {
+            max-width: 820px;
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 18px 22px;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            color: var(--color-text);
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .faq-item[open] summary::after {
+            content: "\2013";
+        }
+
+        .faq-item p {
+            margin: 14px 0 0;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+        }
+
+        .veja-tambem {
+            margin-top: 48px;
+            margin-bottom: 0;
+        }
+
+        .veja-tambem ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+        }
+
+        .veja-tambem a {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">
+                <img src="img/LogoLSGlobal.png" alt="LS Global Tecnologia" class="logo-img">
+            </a>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link active">Início</a></li>
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <li><a href="servicos.html" class="nav-link">Serviços</a></li>
+                <li><a href="gestao-ti.html" class="nav-link">Gestão de TI</a></li>
+                <li><a href="predial.html" class="nav-link">Predial</a></li>
+                <li><a href="tecnologias.html" class="nav-link">Tecnologias</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfólio</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="contato.html" class="btn btn-primary">Solicitar Orçamento</a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section page-topo">
+            <div class="container">
+                <a href="index.html" class="voltar-home">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+                    Voltar para a página inicial
+                </a>
+                <div class="section-header">
+                    <span class="section-tag">Software</span>
+                    <h1 class="section-title">Desenvolvimento de sistemas sob medida em Brasília</h1>
+                    <p class="section-subtitle">Sistemas web, aplicativos e integrações construídos para o processo da sua empresa — entregues por etapas, com código documentado e sustentação depois da entrega.</p>
+                    <p class="page-intro">Trabalhamos com empresas, condomínios e instituições do Distrito Federal que já esbarraram no limite da planilha ou do sistema de prateleira.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>Quando um sistema sob medida se paga</h2>
+                    <p class="texto-corrido">O sinal mais comum é a planilha que virou a espinha dorsal da operação: alguém a preenche toda semana, ela trava quando cresce, duas pessoas editam a mesma versão e o número que vai para o cliente depende de quem montou o relatório. O segundo sinal é o sistema pronto que obriga a empresa a trabalhar do jeito dele, com meia dúzia de campos inúteis e sem aquilo que realmente importa.</p>
+                    <p class="texto-corrido">Há também o caso da soma das assinaturas: três ferramentas de mercado que não conversam entre si, cada uma com mensalidade por usuário, e alguém digitando o mesmo dado nas três. Nessa hora o sob medida deixa de ser luxo e vira conta de chegar.</p>
+                    <ul class="lista-marcada">
+                        <li>O processo da empresa é o diferencial e nenhum sistema pronto o acompanha</li>
+                        <li>Os dados estão espalhados em planilhas, e-mails e sistemas que não se falam</li>
+                        <li>A equipe perde horas digitando o mesmo dado em lugares diferentes</li>
+                        <li>O relatório que a diretoria pede leva dois dias para ser montado à mão</li>
+                        <li>O sistema atual funciona, mas ninguém consegue mais evoluí-lo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section section-alt">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>Como conduzimos o projeto</h2>
+                </div>
+                <div class="scope-grid">
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Levantamento do processo</strong>
+                            <span>Entendemos como o trabalho acontece hoje, incluindo as exceções — que é onde os sistemas prontos costumam quebrar.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Escopo e proposta</strong>
+                            <span>Documento com o que será entregue, em quais etapas, com prazo e valor por fase.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Entrega por etapas</strong>
+                            <span>A primeira parte vai para produção em semanas; o restante entra em ciclos curtos, com validação sua a cada entrega.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Integração com o que já existe</strong>
+                            <span>Conectamos ao ERP, ao sistema contábil, a meios de pagamento, WhatsApp e ao que mais for necessário.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Aplicativo quando faz sentido</strong>
+                            <span>Painel web e apps Android e iOS sobre a mesma API, quando o uso é em campo ou no celular.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Documentação e transferência</strong>
+                            <span>Código comentado, banco documentado e treinamento da equipe — sem dependência de uma pessoa só.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Publicação e ambiente</strong>
+                            <span>Cuidamos de servidor, domínio, certificado e rotina de backup do sistema entregue.</span>
+                        </div>
+                    </div>
+                    <div class="scope-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        <div>
+                            <strong>Sustentação</strong>
+                            <span>Contrato opcional para correções, melhorias e evolução contínua depois do lançamento.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>O que já construímos e está em produção</h2>
+                    <p class="texto-corrido">O portfólio não é lista de intenção: são sistemas em uso diário. O <a href="portfolio.html">SQS 103</a> administra um condomínio inteiro — comunicados, reservas, boletos, prestação de contas, obras e laudos — com painel do síndico, portal do morador e aplicativo. O Instrutor Legal conecta instrutores e alunos em todo o país, com pagamentos, loja, emissão de NF-e e notificações. O SocialX e o AppColeta levam pesquisa de campo para o celular do entrevistador, funcionando offline e sincronizando depois.</p>
+                    <p class="texto-corrido">São projetos diferentes entre si, construídos com as tecnologias que o problema pediu: PHP e CodeIgniter, React e TypeScript, Node.js, Flutter, Java com Spring Boot, PostgreSQL e MySQL. Nenhum deles nasceu de um modelo pronto.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section section-alt" id="faq">
+            <div class="container">
+                <div class="bloco-texto">
+                    <h2>Perguntas frequentes</h2>
+                </div>
+                <div class="faq-lista">
+                    <details class="faq-item">
+                        <summary>Quanto tempo leva para ficar pronto?</summary>
+                        <p>Depende do escopo, mas trabalhamos com entregas parciais: em poucas semanas você já usa a primeira parte do sistema em produção, e o restante entra por etapas. Isso evita o projeto de seis meses que só é visto no fim — e permite corrigir o rumo enquanto ainda é barato mudar.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>De quem é o código-fonte depois de pronto?</summary>
+                        <p>Do cliente, após a quitação do projeto. Isso fica escrito em contrato. Você não fica preso a nós: pode levar o código para outra equipe, hospedar onde quiser e continuar a evolução com quem preferir.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>É melhor um sistema sob medida ou um pronto de prateleira?</summary>
+                        <p>Quando existe um sistema de mercado que atende, o pronto costuma sair mais barato e nós dizemos isso. O sob medida vale quando o processo é o diferencial da empresa, quando o sistema pronto obriga a mudar a operação inteira, ou quando a soma das mensalidades de várias ferramentas já superou o custo de ter algo próprio.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Quem cuida do sistema depois da entrega?</summary>
+                        <p>Oferecemos contrato de sustentação: correção de falhas, novas funcionalidades, atualização de bibliotecas e acompanhamento do ambiente em produção. Também aceitamos assumir sistemas feitos por outra equipe — analisamos o que existe antes de propor qualquer reescrita.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Vocês fazem aplicativo além do sistema web?</summary>
+                        <p>Sim. Vários projetos do nosso portfólio têm painel web e aplicativo para Android e iOS compartilhando a mesma API, como o sistema de gestão condominial do SQS 103 e a plataforma do Instrutor Legal. O app entra quando o uso é em campo ou no celular do usuário final — não por modismo.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="ti-cta">
+                    <div>
+                        <h2>Conte o processo que você quer resolver</h2>
+                        <p>Uma conversa de meia hora costuma bastar para dizer se o caminho é um sistema sob medida, uma integração entre os que você já tem, ou nenhum dos dois.</p>
+                    </div>
+                    <div class="ti-cta-actions">
+                        <a href="https://wa.me/5561998170414?text=Ola!%20Gostaria%20de%20conversar%20sobre%20o%20desenvolvimento%20de%20um%20sistema%20sob%20medida." class="btn btn-whatsapp" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Chamar no WhatsApp
+                        </a>
+                        <a href="contato.html" class="btn btn-outline">Enviar mensagem</a>
+                    </div>
+                </div>
+
+                <div class="bloco-texto veja-tambem">
+                    <h2>Veja também</h2>
+                    <ul>
+                        <li><a href="portfolio.html">Projetos que entregamos</a></li>
+                        <li><a href="tecnologias.html">Tecnologias que utilizamos</a></li>
+                        <li><a href="inteligencia-artificial-empresas-brasilia.html">Inteligência artificial aplicada</a></li>
+                        <li><a href="integracoes-apis.html">Integração de sistemas e APIs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <img src="img/LogoLSGlobal-branco.png" alt="LS Global Tecnologia">
+                    </a>
+                    <p>Transformando ideias em soluções digitais inovadoras. Sua parceira estratégica na jornada de transformação digital.</p>
+                    <address class="footer-address">
+                        <strong>LS Global Tecnologia Ltda</strong><br>
+                        CNPJ: 58.843.245/0001-60<br>
+                        R das Figueiras, Lote 07, Lojas 66/67/68/69, Parte 263<br>
+                        Águas Claras/DF — CEP 71906-750
+                    </address>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="portfolio.html">Portfólio</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="desenvolvimento-web.html">Desenvolvimento de Sistemas Web</a></li>
+                        <li><a href="aplicativos-mobile.html">Desenvolvimento de Aplicativos</a></li>
+                        <li><a href="sistemas-sob-medida.html">Sistemas Sob Medida</a></li>
+                        <li><a href="integracoes-apis.html">Integração de APIs</a></li>
+                        <li><a href="servicos.html">Automação de Processos</a></li>
+                        <li><a href="servicos.html">Inteligência Artificial e Agentes</a></li>
+                        <li><a href="servicos.html">Sustentação e Evolução de Sistemas</a></li>
+                        <li><a href="servicos.html">Saúde Digital e Sistemas Públicos</a></li>
+                        <li><a href="servicos.html">Consultoria em Tecnologia</a></li>
+                        <li><a href="gestao-ti.html">Gestão de TI e Infraestrutura</a></li>
+                        <li><a href="predial.html">Gestão de Sistemas Prediais</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            contato@lsglobaltecnologia.com.br
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +55 (61) 99817-0414
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <p>&copy; 2026 LS Global Tecnologia. Todos os direitos reservados.</p>
+                    <p>LS Global Tecnologia Ltda · CNPJ: 58.843.245/0001-60</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacidade.html">Política de Privacidade</a>
+                    <a href="termos.html">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5561998170414?text=Olá! Gostaria de saber mais sobre os serviços da LS Global Tecnologia." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/main.js?v=20260911"></script>
+    <script src="js/legal-modal.js?v=20260911"></script>
+    <script src="js/analytics.js?v=20260911"></script>
+</body>

@@ -1,0 +1,11 @@
+Options -Indexes
+
+# Bloqueia arquivos de configuração e dados
+<FilesMatch "^(\.env|(mail-config|config-email)\.php|database\.sql|.*\.sql|.*\.md)$">
+    Require all denied
+</FilesMatch>
+
+# Bloqueia arquivos ocultos (.env, .git, etc.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

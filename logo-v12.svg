@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80">
+  <defs>
+    <linearGradient id="g12a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="g12b" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <linearGradient id="g12c" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#14b8a6"/>
+      <stop offset="50%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <filter id="glow12">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ícone: Foguete / Lançamento -->
+  <g transform="translate(10, 5)">
+    <!-- Corpo do foguete -->
+    <path d="M30 5 C30 5, 45 20, 45 40 L45 50 L38 55 L30 50 L22 55 L15 50 L15 40 C15 20, 30 5, 30 5"
+          fill="none" stroke="url(#g12a)" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Janela -->
+    <circle cx="30" cy="28" r="7" fill="none" stroke="url(#g12b)" stroke-width="2"/>
+    <circle cx="30" cy="28" r="3" fill="url(#g12a)" filter="url(#glow12)"/>
+
+    <!-- Asas -->
+    <path d="M15 40 L5 50 L15 50" fill="none" stroke="url(#g12a)" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M45 40 L55 50 L45 50" fill="none" stroke="url(#g12b)" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- Chamas -->
+    <path d="M25 55 Q30 70 30 75 Q30 70 35 55" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" filter="url(#glow12)"/>
+    <path d="M28 55 Q30 65 32 55" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Estrelas ao redor -->
+    <circle cx="5" cy="15" r="2" fill="#14b8a6" opacity="0.8"/>
+    <circle cx="55" cy="20" r="1.5" fill="#0ea5e9" opacity="0.8"/>
+    <circle cx="8" cy="35" r="1.5" fill="#6366f1" opacity="0.6"/>
+    <circle cx="52" cy="8" r="2" fill="#14b8a6" opacity="0.6"/>
+  </g>
+
+  <!-- Texto dinâmico -->
+  <text x="80" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="800" fill="url(#g12c)" letter-spacing="2">LS</text>
+  <text x="105" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="400" fill="#71717a" letter-spacing="2">GLOBAL</text>
+  <rect x="80" y="38" width="100" height="3" rx="1.5" fill="url(#g12c)"/>
+  <text x="80" y="60" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff" letter-spacing="0">TECNOLOGIA</text>
+</svg>

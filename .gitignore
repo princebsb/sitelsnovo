@@ -1,0 +1,6 @@
+# Credenciais e configuração local
+.env
+config-email.php
+
+# Sistema de NFS-e (contém client_secret do Bling, tokens e dados de clientes)
+nfs/

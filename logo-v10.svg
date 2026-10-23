@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80">
+  <defs>
+    <linearGradient id="g10a" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="g10b" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#6366f1"/>
+    </linearGradient>
+    <filter id="glow10">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ícone: Rede Neural / Cérebro Digital -->
+  <g transform="translate(5, 8)">
+    <!-- Nós principais -->
+    <circle cx="30" cy="32" r="8" fill="url(#g10a)" filter="url(#glow10)"/>
+    <circle cx="10" cy="15" r="5" fill="#10b981" filter="url(#glow10)"/>
+    <circle cx="50" cy="15" r="5" fill="#06b6d4" filter="url(#glow10)"/>
+    <circle cx="10" cy="50" r="5" fill="#6366f1" filter="url(#glow10)"/>
+    <circle cx="50" cy="50" r="5" fill="#8b5cf6" filter="url(#glow10)"/>
+
+    <!-- Nós secundários -->
+    <circle cx="30" cy="5" r="3" fill="#10b981" opacity="0.7"/>
+    <circle cx="30" cy="60" r="3" fill="#8b5cf6" opacity="0.7"/>
+    <circle cx="60" cy="32" r="3" fill="#06b6d4" opacity="0.7"/>
+    <circle cx="0" cy="32" r="3" fill="#6366f1" opacity="0.7"/>
+
+    <!-- Conexões -->
+    <line x1="30" y1="32" x2="10" y2="15" stroke="url(#g10a)" stroke-width="1.5" opacity="0.8"/>
+    <line x1="30" y1="32" x2="50" y2="15" stroke="url(#g10a)" stroke-width="1.5" opacity="0.8"/>
+    <line x1="30" y1="32" x2="10" y2="50" stroke="url(#g10b)" stroke-width="1.5" opacity="0.8"/>
+    <line x1="30" y1="32" x2="50" y2="50" stroke="url(#g10b)" stroke-width="1.5" opacity="0.8"/>
+    <line x1="30" y1="32" x2="30" y2="5" stroke="url(#g10a)" stroke-width="1" opacity="0.5"/>
+    <line x1="30" y1="32" x2="30" y2="60" stroke="url(#g10b)" stroke-width="1" opacity="0.5"/>
+    <line x1="30" y1="32" x2="60" y2="32" stroke="url(#g10a)" stroke-width="1" opacity="0.5"/>
+    <line x1="30" y1="32" x2="0" y2="32" stroke="url(#g10b)" stroke-width="1" opacity="0.5"/>
+
+    <!-- LS no centro -->
+    <text x="30" y="36" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">LS</text>
+  </g>
+
+  <!-- Texto -->
+  <text x="80" y="38" font-family="'Segoe UI', Arial, sans-serif" font-size="30" font-weight="300" fill="#ffffff" letter-spacing="3">GLOBAL</text>
+  <text x="80" y="58" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="url(#g10a)" letter-spacing="3">TECNOLOGIA</text>
+</svg>

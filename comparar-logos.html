@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Logos - LS Global Tecnologia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #71717a;
+            margin-bottom: 50px;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logos-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .logo-section {
+            background: rgba(26, 26, 37, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-section:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .logo-section.selected {
+            border-color: #06b6d4;
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+        }
+
+        .logo-section h2 {
+            font-size: 1rem;
+            color: #a1a1aa;
+            margin-bottom: 25px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .logo-wrapper {
+            background: #0a0a0f;
+            border-radius: 12px;
+            padding: 50px 30px;
+            margin-bottom: 20px;
+        }
+
+        .logo-section img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.globo { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+        .badge.hex { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
+        .badge.chip { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+        .badge.letters { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .badge.triangle { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .badge.atom { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+        .badge.cube { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .badge.infinito { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .badge.shield { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .badge.neural { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .badge.diamond { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .badge.rocket { background: rgba(20, 184, 166, 0.2); color: #2dd4bf; }
+
+        .description {
+            text-align: left;
+            font-size: 0.8rem;
+            color: #71717a;
+            line-height: 1.5;
+        }
+
+        .version-number {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            color: #3f3f46;
+            margin-right: 5px;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .actions p {
+            color: #a1a1aa;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            border: none;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: none;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #6366f1;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            color: #818cf8;
+        }
+
+        .selected-display {
+            text-align: center;
+            padding: 20px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .selected-display.show {
+            display: block;
+        }
+
+        .selected-display span {
+            color: #06b6d4;
+            font-weight: 600;
+        }
+
+        @media (max-width: 500px) {
+            .logos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico?v=20260915" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=20260915">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#0f2a6b">
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha sua Logo</h1>
+        <p class="subtitle">Clique em uma logo para selecioná-la</p>
+
+        <div class="selected-display" id="selected-display">
+            Logo selecionada: <span id="selected-name">-</span>
+        </div>
+
+        <div class="logos-grid">
+            <div class="logo-section" onclick="selectLogo('v1', 'Globo Terrestre')">
+                <h2><span class="version-number">V1</span> Globo Terrestre <span class="badge globo">Globo</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v1.svg" alt="Logo V1">
+                </div>
+                <p class="description">Globo com meridianos, paralelos e órbita tecnológica. Representa alcance global e conectividade mundial.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v2', 'Hexágono Tech')">
+                <h2><span class="version-number">V2</span> Hexágono Tech <span class="badge hex">Hexágono</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v2.svg" alt="Logo V2">
+                </div>
+                <p class="description">Hexágono duplo com conexões. Remete a blockchain, estrutura molecular e redes tecnológicas.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v3', 'Circuito / Chip')">
+                <h2><span class="version-number">V3</span> Circuito / Chip <span class="badge chip">Chip</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v3.svg" alt="Logo V3">
+                </div>
+                <p class="description">Chip de computador estilizado com conexões. Representa tecnologia de hardware e processamento.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v4', 'Letras Estilizadas')">
+                <h2><span class="version-number">V4</span> Letras Estilizadas <span class="badge letters">Lettering</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v4.svg" alt="Logo V4">
+                </div>
+                <p class="description">L e S formando um símbolo único e fluido. Design minimalista e elegante com foco na marca.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v5', 'Triângulo / Delta')">
+                <h2><span class="version-number">V5</span> Triângulo / Delta <span class="badge triangle">Delta</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v5.svg" alt="Logo V5">
+                </div>
+                <p class="description">Triângulos conectados simbolizando crescimento, inovação e direção. Visual futurista e dinâmico.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v6', 'Átomo / Órbitas')">
+                <h2><span class="version-number">V6</span> Átomo / Órbitas <span class="badge atom">Átomo</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v6.svg" alt="Logo V6">
+                </div>
+                <p class="description">Átomo com órbitas e elétrons. Representa ciência, energia e inovação tecnológica.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v7', 'Cubo 3D / Blockchain')">
+                <h2><span class="version-number">V7</span> Cubo 3D / Blockchain <span class="badge cube">Cubo</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v7.svg" alt="Logo V7">
+                </div>
+                <p class="description">Cubo isométrico 3D. Representa blockchain, construção, solidez e tecnologia moderna.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v8', 'Infinito Tech')">
+                <h2><span class="version-number">V8</span> Infinito Tech <span class="badge infinito">Infinito</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v8.svg" alt="Logo V8">
+                </div>
+                <p class="description">Símbolo do infinito com energia. Representa possibilidades ilimitadas, ciclo contínuo e inovação sem fim.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v9', 'Escudo Digital')">
+                <h2><span class="version-number">V9</span> Escudo Digital <span class="badge shield">Escudo</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v9.svg" alt="Logo V9">
+                </div>
+                <p class="description">Escudo com check de segurança. Transmite proteção, confiança e segurança digital.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v10', 'Rede Neural')">
+                <h2><span class="version-number">V10</span> Rede Neural <span class="badge neural">Neural</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v10.svg" alt="Logo V10">
+                </div>
+                <p class="description">Rede neural com nós conectados. Representa inteligência artificial, conexões e tecnologia avançada.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v11', 'Diamante / Cristal')">
+                <h2><span class="version-number">V11</span> Diamante / Cristal <span class="badge diamond">Diamante</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v11.svg" alt="Logo V11">
+                </div>
+                <p class="description">Diamante lapidado com brilhos. Transmite valor, excelência, premium e alta qualidade.</p>
+            </div>
+
+            <div class="logo-section" onclick="selectLogo('v12', 'Foguete / Launch')">
+                <h2><span class="version-number">V12</span> Foguete / Launch <span class="badge rocket">Foguete</span></h2>
+                <div class="logo-wrapper">
+                    <img src="logo-v12.svg" alt="Logo V12">
+                </div>
+                <p class="description">Foguete em lançamento com estrelas. Representa crescimento, ambição, inovação e decolagem de projetos.</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <p>Escolha uma logo acima e clique no botão para aplicar ao site</p>
+            <button class="btn" onclick="aplicarLogo()">Aplicar Logo Selecionada</button>
+            <a href="index.html" class="btn btn-outline">Ver Site</a>
+        </div>
+
+        <a href="index.html" class="back-link">← Voltar para o site</a>
+    </div>
+
+    <script>
+        let logoSelecionada = null;
+
+        function selectLogo(versao, nome) {
+            // Remove seleção anterior
+            document.querySelectorAll('.logo-section').forEach(el => {
+                el.classList.remove('selected');
+            });
+
+            // Adiciona nova seleção
+            event.currentTarget.classList.add('selected');
+            logoSelecionada = versao;
+
+            // Mostra display
+            document.getElementById('selected-display').classList.add('show');
+            document.getElementById('selected-name').textContent = versao.toUpperCase() + ' - ' + nome;
+        }
+
+        function aplicarLogo() {
+            if (!logoSelecionada) {
+                alert('Por favor, selecione uma logo primeiro clicando nela.');
+                return;
+            }
+            alert('Logo ' + logoSelecionada.toUpperCase() + ' selecionada!\n\nInforme ao assistente: "Use a logo ' + logoSelecionada.toUpperCase() + '"');
+        }
+    </script>
+    <script src="js/analytics.js?v=20260911"></script>
+</body>
+</html>

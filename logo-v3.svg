@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70">
+  <defs>
+    <linearGradient id="g3a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ícone: Circuito / Chip -->
+  <g transform="translate(8, 7)">
+    <!-- Quadrado central com cantos arredondados -->
+    <rect x="8" y="8" width="40" height="40" rx="8" fill="none" stroke="url(#g3a)" stroke-width="2.5"/>
+
+    <!-- Conexões do chip -->
+    <line x1="18" y1="0" x2="18" y2="8" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="28" y1="0" x2="28" y2="8" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="38" y1="0" x2="38" y2="8" stroke="url(#g3a)" stroke-width="2"/>
+
+    <line x1="18" y1="48" x2="18" y2="56" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="28" y1="48" x2="28" y2="56" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="38" y1="48" x2="38" y2="56" stroke="url(#g3a)" stroke-width="2"/>
+
+    <line x1="0" y1="18" x2="8" y2="18" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="0" y1="28" x2="8" y2="28" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="0" y1="38" x2="8" y2="38" stroke="url(#g3a)" stroke-width="2"/>
+
+    <line x1="48" y1="18" x2="56" y2="18" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="48" y1="28" x2="56" y2="28" stroke="url(#g3a)" stroke-width="2"/>
+    <line x1="48" y1="38" x2="56" y2="38" stroke="url(#g3a)" stroke-width="2"/>
+
+    <!-- LS no centro -->
+    <text x="28" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="800" fill="url(#g3a)" text-anchor="middle" filter="url(#glow3)">LS</text>
+  </g>
+
+  <!-- Texto -->
+  <text x="80" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="1">GLOBAL</text>
+  <text x="80" y="52" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="400" fill="url(#g3a)" letter-spacing="4">TECNOLOGIA</text>
+</svg>

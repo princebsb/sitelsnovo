@@ -1,0 +1,18 @@
+# Robots.txt - LS Global Tecnologia
+# https://lsglobaltecnologia.com.br
+
+User-agent: *
+Allow: /
+
+# CSS, JS e imagens precisam ficar liberados: o Google usa esses arquivos
+# para renderizar a página como um visitante a vê.
+
+# Arquivos internos que não devem ser indexados
+Disallow: /app/
+Disallow: /pdf/CV_
+Disallow: /comparar-logos.html
+Disallow: /orcamento.php
+Disallow: /enviar-contato.php
+
+# Sitemap
+Sitemap: https://lsglobaltecnologia.com.br/sitemap.xml
